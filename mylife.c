@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <time.h> // srand,rand用
 
 /*--------------------------------------
   定数
@@ -30,6 +31,8 @@ void my_save_cells_lif(int gen, const int height, const int width,int cell[heigh
 int main(int argc, char* argv[]) {
     int cell[HEIGHT][WIDTH];
     FILE* fp = NULL;
+
+    srand(time(NULL));
 
     if (argc > 2) {
         fprintf(stderr, "usage: %s [filename for init]\n", argv[0]);
@@ -98,18 +101,14 @@ void my_init_cells(const int height, const int width, int cell[height][width], F
 
     // default
     if (fp == NULL) {
-        int points[][2] = {
-            {20, 30},
-            {20, 32},
-            {22, 30},
-            {22, 31},
-            {23, 31}
-        };
-        int n = sizeof(points) / sizeof(points[0]);
-        for (int i = 0; i < n; i++)
-            cell[points[i][0]][points[i][1]] = 1;
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                cell[y][x] = (rand() % 5 == 0);  // 生存確率 20%
+            }
+        }
         return;
     }
+
 
     char buf[256];
     int px = 0, py = 0;
