@@ -1,7 +1,7 @@
 # software2_last
 
 # 実行方法
-gcc -Wall -o mylifegame mylife.c
+gcc -Wall -o mylifegame mylife.c/n
 ./mylifegame
 
 # a.ランダム配置
