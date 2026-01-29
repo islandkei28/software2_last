@@ -58,6 +58,7 @@ int main(int argc, char* argv[]) {
     printf("\x1b[%dA", HEIGHT + 3);
 
     while (1) {
+        if (gen >= 10000) break;  
         gen++;
         my_update_cells(HEIGHT, WIDTH, cell);
         my_save_cells_lif(gen, HEIGHT, WIDTH, cell);
