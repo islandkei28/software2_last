@@ -1,5 +1,7 @@
 # software2_last
 
+宿題リポジトリの期限が2026/01/29 14:59 UTCで期限切れと表示されてしまったので、自分のリポジトリで作成しました。ご容赦ください。
+
 # 実行方法
 gcc -Wall -o mylifegame mylife.c<br>
 ./mylifegame
